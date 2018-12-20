@@ -5,44 +5,57 @@ public class MyProgram
     {
         Scanner scan = new Scanner(System.in);
         int rollNumber = 1;
+        int roundNumber = 0;
         boolean hasScored = false;
         
         System.out.println("Enter your name: ");
         //player.setName() = scan.nextLine();
         isBotsTurn();
+        while(roundNumber < 13){
+            while(rollNumber < 4 && !hasScored){
+                System.out.println("Here is your roll: ");
+                dicePrintOut();
         
-        while(rollNumber < 4 && !hasScored){
-            System.out.println("Here is your roll: ");
-            dicePrintOut();
-    
-            System.out.println("Here are your options: ");
-            //print scoring options
-            
-            if(rollNumber != 3){
-                System.out.println("Do you want to score with any of these options? (Y/N)");
-                /*String answer = ();
-                if(answer == 'Y'){
-                    hasScored = true;
-                    //print score options
-                    System.out.println("Select a play: ");
-                    //send the play off
+                System.out.println("Here are your options: ");
+                //print scoring options
+                
+                if(rollNumber != 3){
+                    System.out.println("Do you want to score with any of these options? (Y/N)");
+                    /*String response = scan.nextLine();
+                    if(response == "Y"){
+                        hasScored = true;
+                        //print score options
+                        System.out.println("Select a play: ");
+                        
+                    }
+                    else{
+                        System.out.println("Do you want to keep any dice? (Y/N)");
+                        String response = scan.nextLine();
+                        if()(response == "Y"){
+                            System.out.println("Which dice would you like to keep? ");
+                            System.out.println("You kept dice " + .... );
+                        }
+                        else{
+                            System.out.println("You kept no die");
+                        }
+                        
+                    }
+                    */
                 }
                 else{
-                    System.out.println("dggggg");
-                    do you want to keep dice...
+                    hasScored = true;
+                    System.out.println("Select a play: ");
+                    //send the selected play off
+                    
                 }
-                */
+                rollNumber++;
             }
-            else{
-                hasScored = true;
-                System.out.println("Select a play: ");
-                //send the selected play off
-                
-            }
-            rollNumber++;
+            //print off the scoreboard
+            roundNumber++;
         }
         
-        //print off the score board
+        //print off the total scoreboard
+        //show who won
     }
     
     public static void isBotsTurn(){
@@ -59,8 +72,8 @@ public class MyProgram
     }
     
     public static void dicePrintOut(){
-        //for(int i = 1; i <= 6; i++){
-            //System.out.println("Dice " + i + ": " + Dice(i).value);
-        //}
+        for(int i = 0; i < 6; i++){
+            //System.out.println("Dice " + i + ": " + Dice.getDice());
+        }
     }
 }
