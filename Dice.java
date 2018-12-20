@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.*;
 
 public class MyProgram
@@ -17,9 +18,9 @@ public class MyProgram
 
     public static int roll()
     {
-        int low = 1;
-        int high = 6;
-        int roll = MyProgram.nextInt(low, high); 
+        Random rand = new Random();
+        
+        int roll = rand.nextInt(6) + 1; 
         return roll;
     }
         
