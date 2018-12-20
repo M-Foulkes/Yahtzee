@@ -4,17 +4,19 @@ public class MyProgram
     public static void main(String[] args)
     {
         Scanner scan = new Scanner(System.in);
-        int rollNumber = 1;
-        int roundNumber = 0;
-        boolean hasScored = false;
+        int rollNumber = 1;               //how many rolls you had in a round
+        int roundNumber = 0;              //how many rounds you had in total in a game
+        boolean hasScored = false;        //have you selected to score in a round before 3 rolls
         
         System.out.println("Enter your name: ");
         //player.setName() = scan.nextLine();
-        isBotsTurn();
-        while(roundNumber < 13){
-            while(rollNumber < 4 && !hasScored){
+        
+        isBotsTurn(); //decides between if the bot or player goes first
+        
+        while(roundNumber < 13){ //counts the number of rounds in the game
+            while(rollNumber < 4 && !hasScored){ //counts the number of rolls in the players turn
                 System.out.println("Here is your roll: ");
-                dicePrintOut();
+                dicePrintOut();//prints out the dice
         
                 System.out.println("Here are your options: ");
                 //print scoring options
@@ -51,6 +53,8 @@ public class MyProgram
                 }
                 rollNumber++;
             }
+            
+            //take the bots turn
             //print off the scoreboard
             roundNumber++;
         }
