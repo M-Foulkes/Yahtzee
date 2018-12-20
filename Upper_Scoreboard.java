@@ -3,20 +3,12 @@ public class Upper_Scoreboard
     String name = "TOMMY BOI";
     int spaces = 10 - name.length();
     
-    int player[] = {1,12,13,14,5,16,17,18};
+    int player[] = {  1 ,  12 ,   13  ,  14  ,   5  ,  16  , 17 ,  18  };
     
-    // player[] = {ones, }
-     
+    //  player[] = {ones, twos, threes, fours, fives, sixes, sum, bonus}
+    // int player[] = new int[8]; 
     int bot[] = new int[8];
     
-    /* 
-    
-    public 
-    {
-        
-    }
-    
-    */
     public int getScore(int user[])
     {
         int userTot = 0;
@@ -25,18 +17,27 @@ public class Upper_Scoreboard
         return userTot;
     }
     
-    public int getValues(int d1, int d2, int d3, int d4, int d5, String choice)
+    public String options(int dice[])
     {
-        int dice[] = {d1,d2,d3,d4,d5};
-        String options[] = {"1","2","3","4","5","6"};
-        int total = 0;
-        int chosenOption = 0;
+        System.out.println("Options: ");
+        int options[] = {1,2,3,4,5,6};
+        return "";
         
-        for(int i = 0; i < options.length; i++)
-            if( options[i].equals(chosenOption) )
+        // PRINT OUT THE AVAILABLE OPTIONS
+        
+    }
+    
+    public int getValues(int dice[], int d5, String choice)
+    {
+        String options[] = {"1","2","3","4","5","6"};
+        int total = 0;          // Total Counter
+        int chosenOption = 0;   // Option initialized
+        
+        for(int i = 0; i < options.length; i++)  // Relate choice to dice-VALUE
+            if( options[i].equals(choice) )
                 chosenOption += i + 1;
                 
-        for(int j = 0; j < 5; j++)
+        for(int j = 0; j < 5; j++)  // Add total number of the chosen valued dice
             if(dice[j] == chosenOption)
                 total += chosenOption;
                 
