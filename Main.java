@@ -21,8 +21,8 @@ public class MyProgram
                 
                 if(rollNumber != 3){
                     System.out.println("Do you want to score with any of these options? (Y/N)");
-                    /*String response = scan.nextLine();
-                    if(response == "Y"){
+                    String response = scan.nextLine();
+                    if(response.equals("Y")){
                         hasScored = true;
                         //print score options
                         System.out.println("Select a play: ");
@@ -30,17 +30,18 @@ public class MyProgram
                     }
                     else{
                         System.out.println("Do you want to keep any dice? (Y/N)");
-                        String response = scan.nextLine();
-                        if()(response == "Y"){
+                        response = scan.nextLine();
+                        if(response.equals("Y")){
                             System.out.println("Which dice would you like to keep? ");
-                            System.out.println("You kept dice " + .... );
+                            response = scan.nextLine();
+                            System.out.println("You kept dice " + response);
+                            //send off which dice we kept
                         }
                         else{
                             System.out.println("You kept no die");
                         }
                         
                     }
-                    */
                 }
                 else{
                     hasScored = true;
