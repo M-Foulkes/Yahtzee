@@ -1,9 +1,11 @@
+import java.util.Arrays;
+
 public Bot
 {
     //private static int MAX_ROLLS = 3;
     //private static int numRolls = 0;
     private static Dice a = new Dice();
-    private static int dice[] = new int[5];
+    private static int dice[];
     private static Scoreboard s = new Scoreboard();
     private static int ones;
     private static int twos;
@@ -18,7 +20,10 @@ public Bot
     private static int fh;
     private static int chance;
     private static int yahtzee;
+    private static String downs;
+    private static int ups;
     private static int value;
+    private static String name;
     
         
     public Bot()
@@ -28,41 +33,68 @@ public Bot
     
     public void botRoll()
     {
-        //while (numRolls < MAX_ROLLS)
-        for (int i = 0; i < dice.length; i++)
-        {
-            dice[i] = a.rollDice();
-        }
-
+        dice[] = a.getDice();
     }
     
     //public int keepDice()
     
-    public String highestChoice()
+    public void highestChoice()
     {
-        ones = s.getValues(dice[0], dice[1], dice[2], dice[3], dice[4], 1);
-        twos = s.getValues(dice[0], dice[1], dice[2], dice[3], dice[4], 2);
-        threes = s.getValues(dice[0], dice[1], dice[2], dice[3], dice[4], 3);
-        fours = s.getValues(dice[0], dice[1], dice[2], dice[3], dice[4], 4);
-        fives = s.getValues(dice[0], dice[1], dice[2], dice[3], dice[4], 5);
-        sixes = s.getValues(dice[0], dice[1], dice[2], dice[3], dice[4],  6);
-        toak = s.getValues(dice[0], dice[1], dice[2], dice[3], dice[4], a);
-        foak = s.getValues(dice[0], dice[1], dice[2], dice[3], dice[4], b);
-        ss = s.getValues(dice[0], dice[1], dice[2], dice[3], dice[4], c);
-        ls = s.getValues(dice[0], dice[1], dice[2], dice[3], dice[4], d);
-        fh = s.getValues(dice[0], dice[1], dice[2], dice[3], dice[4], e);
-        chance = s.getValues(dice[0], dice[1], dice[2], dice[3], dice[4], f);
-        yahtzee = s.getValues(dice[0], dice[1], dice[2], dice[3], dice[4], g);
-        
-        
-        
+        ones = s.getValues(dice[], 1);
+        twos = s.getValues(dice[], 2);
+        threes = s.getValues(dice[], 3);
+        fours = s.getValues(dice[], 4);
+        fives = s.getValues(dice[], 5);
+        sixes = s.getValues(dice[],  6);
+        toak = s.getValues(dice[], a);
+        foak = s.getValues(dice[], b);
+        ss = s.getValues(dice[], c);
+        ls = s.getValues(dice[], d);
+        fh = s.getValues(dice[], e);
+        chance = s.getValues(dice[], f);
+        yahtzee = s.getValues(dice[], g);
+        int[] choice = {ones, twos, threes, fours, fives, sixes, toak, foak, s, ls, fh, chance, yahtzee};
+        Arrays.sort(choice);
+        value = choice[12];
+        if (value == ones)
+            ups = 1;
+        if (value == twos)
+            ups = 2;
+        if (value == threes)
+            ups = 3;
+        if (value == fours)
+            ups = 4;
+        if (value == fives)
+            ups = 5;
+        if (value == sixes)
+            ups = 6;
+        if (value == toak)
+            downs = "a";
+        if (value == foak)
+            downs = "b";
+        if (value == ss)
+            downs = "c";
+        if (value == ls)
+            downs = "d";
+        if (value == fh)
+            downs = "e";
+        if (value == chance)
+            downs = "f";
+        if (value == yahtzee)
+            downs = "g";
+            
+        if(downs != null)
+            s.setChoice(value, downs);
+        else
+            s.setChoice(value, ups);
     }
     
-    public int getValue()
+    public String toString()
     {
-        return value;
+        if(downs != null)
+            return "The bot chose " + 
+        else
+            s.setChoice(value, ups);
     }
     
-    
-
 }
