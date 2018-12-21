@@ -1,6 +1,6 @@
 public class Upper_Scoreboard
 {
-    String name = "TOMMY BOI";
+    String name = "LP";
     int spaces = 10 - name.length();
     
     int player[] = {  1 ,  12 ,   13  ,  14  ,   5  ,  16  , 17 ,  18  };
@@ -24,10 +24,9 @@ public class Upper_Scoreboard
         return "";
         
         // PRINT OUT THE AVAILABLE OPTIONS
-        
     }
     
-    public int getValues(int dice[], int d5, String choice)
+    public int getValues(int dice[], boolean user, String choice)
     {
         String options[] = {"1","2","3","4","5","6"};
         int total = 0;          // Total Counter
@@ -37,10 +36,17 @@ public class Upper_Scoreboard
             if( options[i].equals(choice) )
                 chosenOption += i + 1;
                 
-        for(int j = 0; j < 5; j++)  // Add total number of the chosen valued dice
+        for(int j = 0; j < dice.length; j++)  // Add total number of the chosen valued dice
             if(dice[j] == chosenOption)
                 total += chosenOption;
-                
+        
+        chosenOption -= 1; // sets back the index to 'MATCH' the scoreboard 
+        
+        if(!user)
+            bot[chosenOption] = total;
+        else
+            player[chosenOption] = total;
+        
         return total;
     }
     
@@ -101,3 +107,6 @@ public class Upper_Scoreboard
         }
     }
 }
+
+
+
