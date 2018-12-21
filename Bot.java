@@ -57,44 +57,88 @@ public Bot
         Arrays.sort(choice);
         value = choice[12];
         if (value == ones)
+        {
             ups = 1;
+            name = "Ones";
+        }
         if (value == twos)
+        {
             ups = 2;
+            name = "Twos";
+        }
         if (value == threes)
+        {
             ups = 3;
+            name = "Threes";
+        }
         if (value == fours)
+        {
             ups = 4;
+            name = "Fours";
+        }
         if (value == fives)
+        {
             ups = 5;
+            name = "Fives";
+        }
         if (value == sixes)
+        {
             ups = 6;
+            name = "Sixes";
+        }
         if (value == toak)
+        {
             downs = "a";
+            name = "Three of a Kind";
+        }
         if (value == foak)
+        {
             downs = "b";
+            name = "Four of a Kind";
+        }
         if (value == ss)
+        {
             downs = "c";
+            name = "Short Straight";
+        }
         if (value == ls)
+        {
             downs = "d";
+            name = "Long Straight";
+        }
         if (value == fh)
+        {
             downs = "e";
+            name = "Full House";
+        }
         if (value == chance)
+        {
             downs = "f";
+            name = "Chance";
+        }
         if (value == yahtzee)
+        {
             downs = "g";
+            name = "Yahtzee";
+        }
             
         if(downs != null)
+        {
             s.setChoice(value, downs);
+        }
         else
+        {
             s.setChoice(value, ups);
+        }
     }
     
     public String toString()
     {
         if(downs != null)
-            return "The bot chose " + 
+            return "The bot chose " + name + " for " + downs + " points";
         else
-            s.setChoice(value, ups);
+            return "The bot chose " + name + " for " + ups + " points";
     }
     
+
 }
