@@ -22,6 +22,7 @@ public class Bot
     private static int ups;
     private static int value;
     private static String name;
+    
         
     public Bot()
     {
@@ -119,11 +120,11 @@ public class Bot
             
         if(downs != null)
         {
-            s.setChoice(value, downs);
+            s.setChoice(value, false, downs);
         }
         else
         {
-            s.setChoice(value, ups);
+            s.setChoice(value, false, ups);
         }
     }
     
@@ -134,4 +135,5 @@ public class Bot
         else
             return "The bot chose " + name + " for " + ups + " points";
     }
+  
 }
