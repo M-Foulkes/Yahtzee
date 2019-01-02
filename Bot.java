@@ -1,9 +1,7 @@
 import java.util.Arrays;
 
-public Bot
+public class Bot
 {
-    //private static int MAX_ROLLS = 3;
-    //private static int numRolls = 0;
     private static Dice a = new Dice();
     private static int dice[];
     private static Scoreboard s = new Scoreboard();
@@ -24,7 +22,6 @@ public Bot
     private static int ups;
     private static int value;
     private static String name;
-    
         
     public Bot()
     {
@@ -35,8 +32,6 @@ public Bot
     {
         dice[] = a.getDice();
     }
-    
-    //public int keepDice()
     
     public void highestChoice()
     {
@@ -139,6 +134,4 @@ public Bot
         else
             return "The bot chose " + name + " for " + ups + " points";
     }
-    
-
 }
