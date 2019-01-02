@@ -79,16 +79,43 @@ public class Scoreboard {
         }
     }
     
-    public boolean isThreeOfAKind(int[] dice) {
+    public boolean isThreeOfAKind(int[] die) {
         boolean check = false;
-        /*for(int i = 0; i < 5; i++) {
+        for(int i = 0; i < 5; i++) {
             for(int j = 1; j < 5; j++) {
                 for(int k = 2; k < 5; k++) {
-                    if(dice[i] == dice[j] && dice[i] == dice[k])
-                        
+                    if(die[i] == die[j] && die[i] == die[k])
+                        check = true;
                 }
             }
-        }*/
+        }
+        
+        return check;
+    }
+    
+    public boolean isFourOfAKind(int[] die) {
+        boolean check = false;
+        for(int i = 0; i < 5; i++) {
+            for(int j = 1; j < 5; j++) {
+                for(int k = 2; k < 5; k++) {
+                    for(int l = 3; l < 5; l++) {
+                        if(die[i] == die[j] && die[i] == die[k] && die[i] == die[l])
+                            check = true;
+                    }
+                }
+            }
+        }
+        
+        return check;
+    }
+    
+    public boolean isFullHouse(int[] die) {
+        boolean check = false;
+        
+    }
+    
+    public void setChoice(int points, String name) {
+        
     }
     
     public void print() {
