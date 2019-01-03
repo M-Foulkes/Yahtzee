@@ -21,14 +21,14 @@ public class MyProgram
                 dicePrintOut();//prints out the dice
         
                 System.out.println("Here are your options: ");
-                System.out.println(Upper_Scoreboard.options(Dice.getDice())); //print scoring options
+                System.out.println(Upper_Scoreboard.options(Dice.getRoll())); //print scoring options
                 
                 if(rollNumber != 3){
                     System.out.println("Do you want to score with any of these options? (Y/N)");
                     String response = scan.nextLine();
                     if(response.equals("Y")){
                         hasScored = true;
-                        System.out.println(Upper_Scoreboard.options(Dice.getDice())); //print scoring options
+                        System.out.println(Upper_Scoreboard.options(Dice.getRoll())); //print scoring options
                         System.out.println("Select a play: ");
                     }
                     else{
@@ -78,7 +78,7 @@ public class MyProgram
     
     public static void dicePrintOut(){
         for(int i = 0; i < 6; i++){
-            System.out.println("Dice " + i + ": " + Dice.getDice());
+            System.out.println("Dice " + i + ": " + getRoll());
         }
     }
 }
