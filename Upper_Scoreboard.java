@@ -1,8 +1,25 @@
 import java.util.*;
 
-public class Upper_Scoreboard
+public class Upper_Scoreboard // extends Dice
 {
     Scanner kb = new Scanner(System.in);
+    
+    /***********************************************************
+    
+    NOTES:
+    -   Write an "setScore" method, which records
+        the scores for Players AND Bots
+    
+    -   Integrate the "Upper_Score" "Lower_Score"
+        Class into one "Scoreboard" Class
+    
+    -   Comment the code THOUROUGHLY, assembling the
+        "Scoreboard" Class will be difficult if we
+        can't read the code quickly (NOT A PRIORITY)
+    
+    ***********************************************************/
+    
+    //Dice dice = new Dice();
     
     String name = "";
     
@@ -28,39 +45,62 @@ public class Upper_Scoreboard
         return user[6] = userTot;
     }
     
-    public void options(int dice[])
+    public void options(int dice[], boolean user)
     {
-        System.out.println("\nOptions: \n# - Type (Points)");
-        String choices[] = 
-            {"1 - ones (" + getValues(dice,true,"1") + ")",
-             "2 - twos (" + getValues(dice,true,"2") + ")",
-             "3 - threes (" + getValues(dice,true,"3") + ")",
-             "4 - fours (" + getValues(dice,true,"4") + ")",
-             "5 - fives (" + getValues(dice,true,"5") + ")",
-             "6 - sixes (" + getValues(dice,true,"6") + ")"};
-             
+        int myChoice;
         String option[] = {"1","2","3","4","5","6"};
         
-        // Display All the Available Options
-        for(int i = 0; i < dice.length; i++)
-            for(int j = 0; j < option.length; j++)
-                if(dice[i] == j+1 && !playerChoseAlready[j])
-                {
-                    playerChoseAlready[j] = true;
-                    System.out.println( choices[j] );
-                }
+        if(user)
+        {
+            System.out.println("\nOptions: \n# - Type (Points)");
+            String choices[] = 
+                {"1 - ones (" + getValues(dice,"1") + ")",
+                 "2 - twos (" + getValues(dice,"2") + ")",
+                 "3 - threes (" + getValues(dice,"3") + ")",
+                 "4 - fours (" + getValues(dice,"4") + ")",
+                 "5 - fives (" + getValues(dice,"5") + ")",
+                 "6 - sixes (" + getValues(dice,"6") + ")"};
+                 
+            //String option[] = {"1","2","3","4","5","6"};
+            
+            // Display All the Available Options
+            for(int i = 0; i < dice.length; i++)
+                for(int j = 0; j < option.length; j++)
+                    if(dice[i] == j+1 && !playerChoseAlready[j])
+                    {
+                        playerChoseAlready[j] = true;
+                        System.out.println( choices[j] );
+                    }
+            
+            // prompt the user to select an option
+            System.out.print("Select your option '#': ");
+            myChoice = kb.nextInt() - 1;
+            
+            setScore(dice, myChoice, option[myChoice], true);
+        }
         
-        // prompt the user to select an option
-        System.out.print("Select your option '#': ");
-        int myChoice = kb.nextInt() - 1;
+        else
+        {
+            
+            // Display All the Available Options
+            for(int i = 0; i < dice.length; i++)
+                for(int j = 0; j < option.length; j++)
+                    if(dice[i] == j+1 && !botChoseAlready[j])
+                        botChoseAlready[j] = true;
+            
+            // prompt the user to select an option
+            myChoice = 2;
+             
+            setScore(dice, myChoice, option[myChoice], false);
         
-        player[myChoice] = getValues( dice , true , option[myChoice] );
+            //System.out.println();
+        }
         
         // CURRENTLY: Prints ALL Options
         System.out.println();
     }
     
-    public int getValues(int dice[], boolean user, String choice)
+    public int getValues(int dice[], String choice)
     {
         String options[] = {"1","2","3","4","5","6"};
         int total = 0;          // Total Counter
@@ -76,18 +116,25 @@ public class Upper_Scoreboard
         for(int j = 0; j < dice.length; j++)  // Add total number of the chosen valued dice
             if(dice[j] == chosenOption)
                 total += chosenOption;
-        
-        /*
-        chosenOption -= 1; // sets back the index to 'MATCH' the scoreboard 
-        
-        if(user)
-            player[chosenOption] = total;
-        else
-            bot[chosenOption] = total;
-        */
-        
+
         return total;
     }
+    
+    /************************** "setScore" method (in progress) ************************/
+    
+    public void setScore( int dice[], int option, String choice, boolean user)
+    {
+        int score = getValues( dice, choice);
+        
+        if(user)
+            player[option] = score;
+        else
+        {
+            bot[option] = score;
+        }
+    }
+    
+    /***********************************************************************************/
     
     public void bonus()
     {
@@ -142,11 +189,10 @@ public class Upper_Scoreboard
             else
                 System.out.print(" /  |  ");
             if(bot[i] != 0)
-                System.out.print(bot[i]);
+                System.out.println(bot[i]);
             else
                 System.out.print("/\n");
         }
         System.out.println();
     }
 }
-
