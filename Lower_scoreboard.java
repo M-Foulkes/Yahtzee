@@ -84,8 +84,12 @@ public class Scoreboard {
         for(int i = 0; i < 5; i++) {
             for(int j = 1; j < 5; j++) {
                 for(int k = 2; k < 5; k++) {
-                    if(die[i] == die[j] && die[i] == die[k])
+                    if(die[i] == die[j] && die[i] == die[k]) {
                         check = true;
+                        die[i] = 0;
+                        die[j] = 0;
+                        die[k] = 0;
+                    }
                 }
             }
         }
@@ -101,6 +105,11 @@ public class Scoreboard {
                     for(int l = 3; l < 5; l++) {
                         if(die[i] == die[j] && die[i] == die[k] && die[i] == die[l])
                             check = true;
+                            die[i] = 0;
+                            die[j] = 0;
+                            die[k] = 0;
+                            die[l] = 0;
+                        }
                     }
                 }
             }
@@ -111,7 +120,8 @@ public class Scoreboard {
     
     public boolean isFullHouse(int[] die) {
         boolean check = false;
-        
+        if(isThreeOfAKind(die) && die[i] == 0)
+
     }
     
     public void setChoice(int points, String name) {
@@ -124,3 +134,4 @@ public class Scoreboard {
         }
     }
 }
+
