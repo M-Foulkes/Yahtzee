@@ -1,26 +1,19 @@
 import java.util.*;
-public class MyProgram
+public class Player
 {
     public static String keep;
     public static void main(String[] args)
     {
-        int turn = 1;
-        String kept = "You kept: ";
-        Scanner at = new Scanner(System.in);
-        System.out.print("Enter player name: ");
-        String name = at.nextLine();
-        int random = (int)(Math.random() * 2 + 1);
-        random = 1;
-        if(random == 2)
-            System.out.println("It's Bot's turn");
-            //Call Bot Class
-        else if (random == 1)
-        {
-            System.out.println("It's " + name + "'s turn");
+    public static void playerTurn()
+    {  
+            int turn = 1;
+            String kept = "You kept: ";
+            int[] dice = new array {Math.random() * 6 + 1,Math.random() * 6 + 1,Math.random() * 6 + 1,Math.random() * 6 + 1,Math.random() * 6 + 1}
+            System.out.print(dice[])
+            Scanner at = new Scanner(System.in);
             while(turn <= 3)
             {
-                System.out.println("Heres your roll");
-                //Call Dice
+                System.out.println("Here is your roll");
                 System.out.println("Here is your options");
                 
                 if(turn < 3)
@@ -69,11 +62,11 @@ public class MyProgram
                         if(turn == 3)
                         {
                             keep = "Y";
-                            System.out.println("Heres your roll");
-                            //Call Dice
+                            System.out.println("Here is your roll");
+                            //getDice();
                             System.out.println("Here is your options");
                         }
-                        } 
+                        }
                     }
                     if (keep.equals("Y"))
                     {
@@ -83,6 +76,6 @@ public class MyProgram
                         turn = 4;
                     }
                 }
-            }
     }
+}
 }
