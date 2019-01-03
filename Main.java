@@ -7,9 +7,11 @@ public class MyProgram
         int rollNumber = 1;               //how many rolls you had in a round
         int roundNumber = 0;              //how many rounds you had in total in a game
         boolean hasScored = false;        //have you selected to score in a round before 3 rolls
+        String name = "";
+        
         
         System.out.println("Enter your name: ");
-        //player.setName() = scan.nextLine();
+        name = scan.nextLine();
         
         isBotsTurn(); //decides between if the bot or player goes first
         
@@ -19,18 +21,15 @@ public class MyProgram
                 dicePrintOut();//prints out the dice
         
                 System.out.println("Here are your options: ");
-                Upper_Scoreboard.options(Dice.getDice()); //print scoring options
-                Lower_Scoreboard.options(Dice.getDice());
+                System.out.println(Upper_Scoreboard.options(Dice.getDice())); //print scoring options
                 
                 if(rollNumber != 3){
                     System.out.println("Do you want to score with any of these options? (Y/N)");
                     String response = scan.nextLine();
                     if(response.equals("Y")){
                         hasScored = true;
-                        Upper_Scoreboard.options(Dice.getDice()); //print scoring options
-                        Lower_Scoreboard.options(Dice.getDice());
+                        System.out.println(Upper_Scoreboard.options(Dice.getDice())); //print scoring options
                         System.out.println("Select a play: ");
-                        
                     }
                     else{
                         System.out.println("Do you want to keep any dice? (Y/N)");
@@ -61,8 +60,7 @@ public class MyProgram
             roundNumber++;
         }
         
-        //print off the total scoreboard
-        //show who won
+        Upper_Scoreboard.getwinner(); //show who won
     }
     
     public static void isBotsTurn(){
@@ -73,7 +71,7 @@ public class MyProgram
             //the bot selected...
         }
         else{
-            System.out.println("It's your turn."); // System.out.println("It's your turn, " + player.name()+ ".");
+            System.out.println("It's your turn, " + name + ".");
         }
         
     }
@@ -84,4 +82,3 @@ public class MyProgram
         }
     }
 }
-
