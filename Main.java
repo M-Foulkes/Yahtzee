@@ -28,7 +28,7 @@ public class MyProgram
             }
             
             //take the bots turn
-            System.out.println(Upper_Scoreboard.options(Dice.getRoll()));//print off the scoreboard
+            System.out.println(Upper_Scoreboard.print();//print off the scoreboard
             roundNumber++;
         }
         
