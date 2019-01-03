@@ -15,15 +15,15 @@ public class Scoreboard {
         return 0;
     }
     
-    public int getValues(int[] die, String s) {
+    public int getValues(int[] dice, String s) {
         int sum = 0;
         for(int i = 0; i < 5; i++) {
-            sum += die[i];
+            sum += dice[i];
         }
         
         if(s.toUpperCase().equals("A")) {
             if(player[8] == null || bot[8] == null) {
-                if(isThreeOfAKind(die))
+                if(isThreeOfAKind(dice))
                     return sum;
                 return 0;
             }
@@ -31,7 +31,7 @@ public class Scoreboard {
         }
         else if(s.toUpperCase().equal("B")) {
             if(player[9] == null || bot[9] == null) {
-                if(isFourOfAKind(die))
+                if(isFourOfAKind(dice))
                     return sum;
                 return 0;
             }
@@ -39,7 +39,7 @@ public class Scoreboard {
         }
         else if(s.toUpperCase().equal("C")) {
             if(player[10] == null || bot[10] == null) {
-                if(isFullHouse(die))
+                if(isFullHouse(dice))
                     return 25;
                 return 0;
             }
@@ -47,7 +47,7 @@ public class Scoreboard {
         }
         else if(s.toUpperCase().equal("D")) {
             if(player[11] == null || bot[11] == null) {
-                if(isSmallStraight(die))
+                if(isSmallStraight(dice))
                     return 30;
                 return 0;
             }
@@ -55,7 +55,7 @@ public class Scoreboard {
         }
         else if(s.toUpperCase().equal("E")) {
             if(player[12] == null || bot[12] == null) {
-                if(isLargeStraight(die))
+                if(isLargeStraight(dice))
                     return 40;
                 return 0;
             }
@@ -63,7 +63,7 @@ public class Scoreboard {
         }
         else if(s.toUpperCase().equal("F")) {
             if(player[13] == null || bot[13] == null) {
-                if(isChance(die))
+                if(isChance(dice))
                     return sum;
                 return 0;
             }
@@ -71,7 +71,7 @@ public class Scoreboard {
         }
         else if(s.toUpperCase().equal("G")) {
             if(player[14] == null || bot[14] == null) {
-                if(isYahtzee(die))
+                if(isYahtzee(dice))
                     return 50;
                 return 0;
             }
@@ -79,16 +79,16 @@ public class Scoreboard {
         }
     }
     
-    public boolean isThreeOfAKind(int[] die) {
+    public boolean isThreeOfAKind(int[] dice) {
         boolean check = false;
         for(int i = 0; i < 5; i++) {
             for(int j = 1; j < 5; j++) {
                 for(int k = 2; k < 5; k++) {
-                    if(die[i] == die[j] && die[i] == die[k]) {
+                    if(dice[i] == dice[j] && dice[i] == dice[k]) {
                         check = true;
-                        die[i] = 0;
-                        die[j] = 0;
-                        die[k] = 0;
+                        dice[i] = 0;
+                        dice[j] = 0;
+                        dice[k] = 0;
                     }
                 }
             }
@@ -97,18 +97,18 @@ public class Scoreboard {
         return check;
     }
     
-    public boolean isFourOfAKind(int[] die) {
+    public boolean isFourOfAKind(int[] dcie) {
         boolean check = false;
         for(int i = 0; i < 5; i++) {
             for(int j = 1; j < 5; j++) {
                 for(int k = 2; k < 5; k++) {
                     for(int l = 3; l < 5; l++) {
-                        if(die[i] == die[j] && die[i] == die[k] && die[i] == die[l])
+                        if(dice[i] == dice[j] && dice[i] == dice[k] && dice[i] == dice[l])
                             check = true;
-                            die[i] = 0;
-                            die[j] = 0;
-                            die[k] = 0;
-                            die[l] = 0;
+                            dice[i] = 0;
+                            dice[j] = 0;
+                            dice[k] = 0;
+                            dice[l] = 0;
                         }
                     }
                 }
@@ -118,14 +118,41 @@ public class Scoreboard {
         return check;
     }
     
-    public boolean isFullHouse(int[] die) {
+    public boolean isFullHouse(int[] dice) {
         boolean check = false;
-        if(isThreeOfAKind(die) && die[i] == 0)
-
+        for (int i = 0; i<5;i++)
+        if(isThreeOfAKind(dice) && dice[i] == 0 && dice[i+1] == 0)
+            check = true;
+        return check;
+ 
     }
-    
-    public void setChoice(int points, String name) {
-        
+    public boolean isSmallStraight(int[] dice){
+        boolean check = false;
+        for (int i = 0; i < 5; i++)
+        {
+            if (dice[i] == 1 && dice[i+1] == 2 && dice[i+2] == 3 && dice[i+3] == 4)
+                check = true;
+            else if (dice[i] == 2 && dice[i+1] == 3 && dice[i+2] == 4 && dice[i+3] == 5)
+                check = true;                
+        }
+        return check;
+    }
+    public boolean isLargeStraight(int[] dice){
+        boolean check = false;
+        for (int i = 0; i < 5; i++)
+        {
+            if (dice[i] == 1 && dice[i+1] == 2 && dice[i+2] == 3 && dice[i+3] == 4 && dice[i+4] == 5)
+                check = true;               
+        }
+        return check;
+    }
+
+    public boolean isYahtzee(int[] dice){
+        boolean check = false;
+        for (int i = 0; i < 5 ; i++)
+            if (dice[i] == dice[i+1] && dice[i+1] == dice[i+2] && dice[i+2] == dice[i+3] && dice[i+3] == dice[i+4])
+                check = true;
+        return check;
     }
     
     public void print() {
