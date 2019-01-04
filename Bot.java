@@ -31,7 +31,7 @@ public class Bot
     
     public void botRoll()
     {
-        dice[] = a.getDice();
+        dice[] = a.getRoll();
     }
     
     public void highestChoice()
