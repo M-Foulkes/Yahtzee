@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Bot
 {
-    private static Dice a = new Dice();
+    private static DiceArray a = new DiceArray(5);
     private static int dice[];
     private static Scoreboard s = new Scoreboard();
     private static int ones;
@@ -31,7 +31,7 @@ public class Bot
     
     public void botRoll()
     {
-        dice[] = a.getRoll(5);
+        dice[] = a.roll();
     }
     
     public void highestChoice()
