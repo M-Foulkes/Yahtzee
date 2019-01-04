@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Scoreboard
+public class Upper_Scoreboard
 {
     /***********************************************************
     
