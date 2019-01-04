@@ -9,6 +9,7 @@ public class MyProgram
         int roundNumber = 0;              //how many rounds you had in total in a game
         boolean hasScored = false;        //have you selected to score in a round before 3 rolls
         String name = "";
+        DiceArray d = new DiceArray(5);
         
         System.out.println("Enter your name: ");
         name = scan.nextLine();
@@ -21,7 +22,7 @@ public class MyProgram
                 dicePrintOut();//prints out the dice
         
                 System.out.println("Here are your options: ");
-                System.out.println(Upper_Scoreboard.options(Dice.getRoll())); //print scoring options
+                System.out.println(Upper_Scoreboard.options(d.roll)); //print scoring options
                 player.playerTurn();
                 
                 rollNumber++;
@@ -54,7 +55,7 @@ public class MyProgram
     
     public static void dicePrintOut(){
         for(int i = 0; i < 6; i++){
-            System.out.println("Dice " + i + ": " + Dice.getRoll());
+            System.out.println("Dice " + i + ": " + d.roll);
         }
     }
 }
