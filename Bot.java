@@ -41,13 +41,13 @@ public class Bot
         fours = s.getValues(dice[], "4");
         fives = s.getValues(dice[], "5");
         sixes = s.getValues(dice[], "6");
-        toak = s.getValues(dice[], "a");
-        foak = s.getValues(dice[], "b");
-        ss = s.getValues(dice[], "c");
-        ls = s.getValues(dice[], "d");
-        fh = s.getValues(dice[], "e");
-        chance = s.getValues(dice[], "f");
-        yahtzee = s.getValues(dice[], "g");
+        toak = s.getValues(dice[], "A");
+        foak = s.getValues(dice[], "B");
+        ss = s.getValues(dice[], "C");
+        ls = s.getValues(dice[], "D");
+        fh = s.getValues(dice[], "E");
+        chance = s.getValues(dice[], "F");
+        yahtzee = s.getValues(dice[], "G");
         int[] choice = {ones, twos, threes, fours, fives, sixes, toak, foak, s, ls, fh, chance, yahtzee};
         Arrays.sort(choice);
         value = choice[12];
@@ -83,37 +83,37 @@ public class Bot
         }
         if (value == toak)
         {
-            c = "a";
+            c = "A";
             name = "Three of a Kind";
         }
         if (value == foak)
         {
-            c = "b";
+            c = "B";
             name = "Four of a Kind";
         }
         if (value == ss)
         {
-            c = "c";
+            c = "C";
             name = "Short Straight";
         }
         if (value == ls)
         {
-            c = "d";
+            c = "D";
             name = "Long Straight";
         }
         if (value == fh)
         {
-            c = "e";
+            c = "E";
             name = "Full House";
         }
         if (value == chance)
         {
-            c = "f";
+            c = "F";
             name = "Chance";
         }
         if (value == yahtzee)
         {
-            c = "g";
+            c = "G";
             name = "Yahtzee";
         }
       
