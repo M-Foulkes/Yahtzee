@@ -1,44 +1,41 @@
-import java.util.Random;
 import java.util.*;
 
-public class MyProgram
+public class DiceArray
 {
     
-    private int die1;
-    private int die2;
-    private int die3;
-    private int die4;
-    private int die5;
-    private int a;
+    private int[] dice;
+    private boolean[] diceToRoll;
     
-    public void Dice()
+     public DiceArray(int numDice)
     {
-        
+        dice = new int[numDice];
+        diceToRoll = new boolean[numDice];
+
+        for(int i = 0; i < dice.length; i++)
+        {   
+            dice[i] = -1;
+            diceToRoll[i] = true;
+        }   
+    }
+    
+    public void theRoll()
+    {
+        for (int i = 0; i < dice.length; i++)
+        {   
+            if (diceToRoll[i] == true)
+                dice[i] = (int)(Math.random() * 6 + 1);
+        }   
+    }
+    
+    public int[] roll()
+    {
+        return dice;
+    }
+    
+    public void reset()
+    {
+        for (int i = 0; i < dice.length; i++)
+            diceToRoll[i] = true;
     }
 
-    public static int roll()
-    {
-        Random rand = new Random();
-        
-        int roll = rand.nextInt(6) + 1; 
-        return roll;
-    }
-        
-        
-    public static int[] getDice()
-    {
-        int[] a = new int[5];
-        a[0] = roll();
-        die1 = a[0];
-        a[1] = roll();
-        die2 = a[1];
-        a[2] = roll();
-        die3 = a[2];
-        a[3] = roll();
-        die4 = a[3];
-        a[4] = roll();
-        die5 = a[4];
-            
-        return a;
-    }
 }
