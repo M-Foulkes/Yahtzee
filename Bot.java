@@ -120,11 +120,11 @@ public class Bot
             
         if(downs != null)
         {
-            s.setChoice(value, false, downs);
+            s.setScore(value, false, downs);
         }
         else
         {
-            s.setChoice(value, false, ups);
+            s.setScore(value, false, ups);
         }
     }
     
