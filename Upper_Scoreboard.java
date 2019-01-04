@@ -13,7 +13,7 @@ public class Upper_Scoreboard extends Dice
     ***********************************************************/
     
     Dice myDice = new Dice();
-    int dice[] = myDice.getDice();
+    int dice[] = myDice.getRoll(5);
     
     /**************************************** LOWER SCOREBOARD METHODS *************************************/
     
