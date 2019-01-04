@@ -29,7 +29,7 @@ public class MyProgram
             
             Bot.botRoll(); //run the bots turn
             Bot.highestChoice();
-            Bot.toString(); //the bot selected...
+            System.out.println(Bot.toString()); //the bot selected...
             
             System.out.println(Upper_Scoreboard.print();//print off the scoreboard
             roundNumber++;
@@ -44,7 +44,7 @@ public class MyProgram
             System.out.println("It's the Bot's turn.");
             Bot.botRoll(); //run the bots turn
             Bot.highestChoice();
-            Bot.toString(); //the bot selected...
+            System.out.println(Bot.toString()); //the bot selected...
         }
         else{
             System.out.println("It's your turn, " + name + ".");
