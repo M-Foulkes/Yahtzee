@@ -27,20 +27,24 @@ public class MyProgram
                 rollNumber++;
             }
             
-            //take the bots turn
+            Bot.botRoll(); //run the bots turn
+            Bot.highestChoice();
+            Bot.toString(); //the bot selected...
+            
             System.out.println(Upper_Scoreboard.print();//print off the scoreboard
             roundNumber++;
         }
         
-        //Upper_Scoreboard.getwinner(); //show who won
+        Upper_Scoreboard.getwinner(); //show who won
     }
     
     public static void isBotsTurn(String name){
         int randNum = ((int)(Math.random() * 2) + 1);
         if(randNum == 1){
             System.out.println("It's the Bot's turn.");
-            //run the bots turn
-            //the bot selected...
+            Bot.botRoll(); //run the bots turn
+            Bot.highestChoice();
+            Bot.toString(); //the bot selected...
         }
         else{
             System.out.println("It's your turn, " + name + ".");
