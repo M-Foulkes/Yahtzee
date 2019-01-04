@@ -123,7 +123,7 @@ public class Bot
     public String toString()
     {
         
-        return "The bot chose " + name + " for " + c + " points";
+        return "The bot chose " + name + " for " + value + " points";
     }
   
 }
